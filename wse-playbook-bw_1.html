@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WSE Indonesia — Marketing Strategy 2026</title>
+
+<style>
+
+/* ─── TOKENS ─── */
+:root {
+  --navy:       #000000;
+  --navy-2:     #111111;
+  --blue:       #222222;
+  --blue-lt:    #F0F0F0;
+  --gold:       #000000;
+  --gold-lt:    #F0F0F0;
+  --gold-bright:#000000;
+  --green:      #111111;
+  --green-lt:   #ECECEC;
+  --red:        #111111;
+  --red-lt:     #F0F0F0;
+  --purple:     #333333;
+  --purple-lt:  #EBEBEB;
+  --white:      #FFFFFF;
+  --off:        #FFFFFF;
+  --cream:      #FFFFFF;
+  --border:     #DEDEDE;
+  --border-2:   #C8C8C8;
+  --text:       #000000;
+  --text-2:     #333333;
+  --text-3:     #888888;
+  --sidebar-w:  240px;
+
+  /* Typography scale */
+  --fs-xs:   11px;
+  --fs-sm:   13px;
+  --fs-base: 15px;
+  --fs-md:   17px;
+  --fs-lg:   22px;
+  --fs-xl:   30px;
+  --fs-2xl:  42px;
+  --fs-hero: 58px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; overflow:hidden; }
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #FFFFFF;
+  color: #000000;
+  display: flex;
+  font-size: var(--fs-base);
+  line-height: 1.6;
+}
+
+/* ─── SIDEBAR ─── */
+.sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: #000000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-shrink: 0;
+}
+
+.sidebar::-webkit-scrollbar { width: 0; }
+
+.s-brand {
+  padding: 24px 20px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.s-brand-label {
+  font-size: var(--fs-xs);
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.s-brand-name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.s-brand-name em {
+  color: #FFFFFF;
+  font-style: italic;
+}
+
+.s-group-label {
+  font-size: var(--fs-xs);
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+  padding: 18px 20px 6px;
+  font-weight: 600;
+}
+
+.s-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.s-item:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.s-item.active {
+  background: rgba(0,0,0,0.08);
+  border-left-color: #000000;
+}
+
+.s-item-icon {
+  font-size: 16px;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.s-item.active .s-item-icon { opacity: 1; }
+
+.s-item-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.3;
+}
+
+.s-item.active .s-item-label {
+  color: #000000;
+  font-weight: 600;
+}
+
+.s-item-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  margin-top: 1px;
+}
+
+.s-footer {
+  margin-top: auto;
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 10px;
+  color: rgba(255,255,255,0.15);
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+}
+
+/* ─── MAIN ─── */
+.main {
+  flex: 1;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: #FFFFFF;
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  overflow-y: auto;
+  display: none;
+  animation: fadeIn 0.2s ease;
+  background: #FFFFFF;
+}
+
+.page.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── TOP BAR ─── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #D8D8D8;
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-path {
+  font-size: var(--fs-xs);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #888888;
+  font-weight: 600;
+}
+
+.topbar-path strong { color: #FFFFFF; }
+.topbar.dark .topbar-path strong { color: var(--gold-bright, #FFFFFF); }
+
+.topbar-tag {
+  font-size: var(--fs-xs);
+  color: #888888;
+  letter-spacing: 0.5px;
+}
+
+.topbar.dark {
+  background: rgba(0,0,0,0.97);
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+
+.topbar.dark .topbar-path { color: rgba(255,255,255,0.3); }
+.topbar.dark .topbar-tag  { color: rgba(255,255,255,0.2); }
+
+/* ─── CONTENT WRAPPER ─── */
+.pw { padding: 40px; max-width: 860px; }
+.pw.wide { max-width: 1000px; }
+
+/* ─── TYPOGRAPHY ─── */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.page-h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.page-h1 em {
+  font-style: italic;
+  color: #555555;
+  font-weight: 300;
+}
+
+.page-lead {
+  font-size: var(--fs-md);
+  color: #333333;
+  line-height: 1.8;
+  max-width: 620px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+
+.h3 {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.body-text {
+  font-size: var(--fs-base);
+  color: #333333;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.note {
+  font-size: var(--fs-sm);
+  color: #888888;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+hr.sep { border:none; border-top:1px solid #D8D8D8; margin: 40px 0; }
+
+/* ─── HERO (HOME) ─── */
+.hero {
+  background: #000000;
+  padding: 60px 40px 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content:'';
+  position:absolute; top:-120px; right:-80px;
+  width:420px; height:420px; border-radius:50%;
+  background:radial-gradient(circle,rgba(80,80,80,0.18) 0%,transparent 65%);
+  pointer-events:none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.08);
+  padding: 7px 16px;
+  border-radius: 100px;
+  font-size: var(--fs-xs);
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 28px;
+  width: fit-content;
+  position: relative; z-index:1;
+}
+
+.hero-badge::before {
+  content:'';
+  width:6px; height:6px; border-radius:50%;
+  background:#FFFFFF;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin-bottom: 18px;
+  position: relative; z-index:1;
+}
+
+.hero-title .gold { color: #FFFFFF; }
+.hero-title .faded { color: rgba(255,255,255,0.22); font-weight:300; font-style:italic; }
+
+.hero-desc {
+  font-size: var(--fs-md);
+  color: rgba(255,255,255,0.5);
+  max-width: 520px;
+  line-height: 1.85;
+  margin-bottom: 40px;
+  font-weight: 300;
+  position: relative; z-index:1;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 12px;
+  overflow: hidden;
+  width: fit-content;
+  position: relative; z-index:1;
+}
+
+.hstat {
+  padding: 18px 26px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  text-align: center;
+}
+.hstat:last-child { border-right: none; }
+
+.hstat-val {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.hstat-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* ─── QUICK CARDS ─── */
+.quick-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.qcard { border-top: 3px solid #000000; }
+.qcard:nth-child(2) { border-top-color: #444444; }
+.qcard:nth-child(3) { border-top-color: #777777; }
+.qcard:nth-child(4) { border-top-color: #AAAAAA; }
+
+.qcard-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+
+.qcard-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 6px;
+}
+
+.qcard-desc {
+  font-size: var(--fs-sm);
+  color: #333333;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.qcard-link {
+  font-size: var(--fs-xs);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: 700;
+}
+
+.qcard:nth-child(2) .qcard-link { color: #444444; }
+.qcard:nth-child(3) .qcard-link { color: #777777; }
+.qcard:nth-child(4) .qcard-link { color: #AAAAAA; }
+
+/* ─── CALLOUT BOX ─── */
+.callout {
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 24px;
+}
+
+.callout.dark {
+  background: #000000;
+  color: rgba(255,255,255,0.65);
+}
+
+.callout.dark strong { color: #FFFFFF; }
+
+.callout.blue-lt { background: var(--blue-lt); }
+.callout.gold-lt { background: var(--gold-lt); }
+.callout.green-lt { background: var(--green-lt); }
+.callout.purple-lt { background: var(--purple-lt); }
+
+.callout p { font-size: var(--fs-base); line-height: 1.85; }
+
+.callout.dark p { color: rgba(255,255,255,0.6); }
+
+/* ─── NUMBER STATS ─── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 12px;
+  padding: 18px 14px;
+  text-align: center;
+}
+
+.stat-val {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-val .a { color: #555555; }
+.stat-label { font-size: 12px; color: #888888; line-height: 1.4; }
+
+/* ─── PILLAR GRID ─── */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 13px;
+  margin-bottom: 28px;
+}
+
+.pillar {
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 12px;
+  padding: 20px 18px;
+}
+
+.pillar-num {
+  font-size: var(--fs-xs);
+  letter-spacing: 2px;
+  color: #555555;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.pillar h4 {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 7px;
+  line-height: 1.3;
+}
+
+.pillar p {
+  font-size: var(--fs-sm);
+  color: #333333;
+  line-height: 1.65;
+}
+
+/* ─── FORMAT CARDS ─── */
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 11px;
+  margin-bottom: 28px;
+}
+
+.fmt {
+  background: #000000;
+  border-radius: 12px;
+  padding: 18px 14px;
+}
+
+.fmt-emoji { font-size: 20px; margin-bottom: 9px; display: block; }
+
+.fmt h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.fmt p { font-size: 11.5px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+/* ─── CHANNEL TABS ─── */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  border: 1px solid #D8D8D8;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 22px;
+  width: fit-content;
+}
+
+.tab {
+  padding: 9px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-right: 1px solid #D8D8D8;
+  background: #FFFFFF;
+  color: #888888;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.tab:last-child { border-right: none; }
+.tab.active { background: #000000; color: #FFFFFF; }
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ─── DIST CARDS ─── */
+.dist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-bottom: 20px;
+}
+
+.dc {
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 12px;
+  padding: 18px 18px;
+}
+
+.dc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.dc-top h4 { font-size: 14px; font-weight: 700; color: #000000; line-height: 1.3; }
+
+.pill {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.pill.must  { background: #000000; color: #FFFFFF; }
+.pill.key   { background: #444444; color: #FFFFFF; }
+.pill.core  { background: #888888; color: #FFFFFF; }
+.pill.extra { background: #BBBBBB; color: #000000; }
+
+.dc ul { list-style: none; padding: 0; }
+
+.dc ul li {
+  font-size: 12.5px;
+  color: #333333;
+  padding: 4px 0;
+  border-bottom: 1px solid #D8D8D8;
+  display: flex;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.dc ul li:last-child { border-bottom: none; }
+
+.dc ul li::before {
+  content: '→';
+  color: #000000;
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ─── CAMPAIGN ─── */
+.camp-hero {
+  background: var(--navy-2);
+  border-radius: 14px;
+  padding: 32px 32px;
+  margin-bottom: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.camp-hero::after {
+  content:'';
+  position:absolute; top:-60px; right:-60px;
+  width:250px; height:250px; border-radius:50%;
+  background:radial-gradient(circle,rgba(200,200,200,0.12) 0%,transparent 70%);
+}
+
+.camp-tag {
+  font-size: var(--fs-xs);
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.camp-hero h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(22px,3vw,34px);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  position: relative; z-index:1;
+}
+
+.camp-hero p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.75;
+  position: relative; z-index:1;
+}
+
+.result-row {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 11px;
+  margin-bottom: 22px;
+}
+
+.rcard {
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.rcard-val {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.rcard-val .a { color: #555555; }
+.rcard-label { font-size: 11px; color: #888888; line-height: 1.4; }
+
+/* ─── TABLES ─── */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #D8D8D8;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 22px;
+  font-size: var(--fs-sm);
+}
+
+.tbl thead { background: #000000; }
+
+.tbl th {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  font-weight: 600;
+}
+
+.tbl td {
+  padding: 11px 15px;
+  color: #333333;
+  border-top: 1px solid #D8D8D8;
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.tbl tbody tr:hover { background: #F5F5F5; }
+.tbl td:first-child { font-weight: 600; color: #000000; }
+
+.tpill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.tpill.own  { background: #EBEBEB; color: #000000; }
+.tpill.earn { background: #E0E0E0; color: #111111; }
+.tpill.paid { background: #D6D6D6; color: #222222; }
+.tpill.kol  { background: #CCCCCC; color: #333333; }
+.tpill.a    { background: #EBEBEB; color: #000000; }
+.tpill.p    { background: #E0E0E0; color: #111111; }
+.tpill.e    { background: #D6D6D6; color: #222222; }
+.tpill.x    { background: #CCCCCC; color: #333333; }
+
+/* ─── KOL CARDS ─── */
+.kol-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 13px;
+  margin-bottom: 22px;
+}
+
+.kcard {
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 12px;
+  padding: 18px 16px;
+  transition: box-shadow 0.15s;
+}
+
+.kcard:hover { box-shadow: 0 5px 16px rgba(0,0,0,0.1); }
+
+.kcard-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #D8D8D8;
+  margin-bottom: 11px;
+}
+
+.kcard-av {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+
+.kcard-av.a { background: #EBEBEB; }
+.kcard-av.b { background: #E0E0E0; }
+.kcard-av.c { background: #D4D4D4; }
+
+.kcard-info h4 { font-size: 13px; font-weight: 700; color: #000000; margin-bottom:1px; }
+.kcard-info span { font-size: 11px; color: #888888; }
+
+.kcard-type {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+.kt-a { background: #EBEBEB; color: #000000; }
+.kt-b { background: #E0E0E0; color: #111111; }
+.kt-c { background: #D6D6D6; color: #222222; }
+
+.kcard-brief { font-size: 12.5px; color: #333333; line-height: 1.7; margin-bottom: 10px; }
+.kcard-meta { display: flex; justify-content: space-between; font-size: 11px; color: #888888; }
+
+/* ─── APEX PAGE ─── */
+.apex-banner {
+  background: #000000;
+  padding: 44px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.apex-banner::before {
+  content: 'APEX';
+  position: absolute;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 200px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.03);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  letter-spacing: -6px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.apex-letters {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 11px;
+  overflow: hidden;
+  width: fit-content;
+  margin-bottom: 26px;
+  position: relative; z-index:1;
+}
+
+.al {
+  padding: 14px 22px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  text-align: center;
+}
+.al:last-child { border-right: none; }
+
+.al-ch {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.al:nth-child(1) .al-ch { color: #FFFFFF; }
+.al:nth-child(2) .al-ch { color: #CCCCCC; }
+.al:nth-child(3) .al-ch { color: #999999; }
+.al:nth-child(4) .al-ch { color: #666666; }
+
+.al-word {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.apex-banner-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+  position: relative; z-index:1;
+}
+
+.apex-banner-title em { color: #FFFFFF; font-style: italic; font-weight: 300; }
+
+.apex-banner-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
+  max-width: 540px;
+  font-weight: 300;
+  position: relative; z-index:1;
+}
+
+/* ─── LAYER BLOCKS ─── */
+.layer {
+  border: 1px solid #D8D8D8;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.layer-head {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+  padding: 18px 24px;
+}
+
+.layer-head.l1 { background: #000000; }
+.layer-head.l2 { background: #222222; }
+.layer-head.l3 { background: #444444; }
+.layer-head.l4 { background: #DDDDDD; }
+
+.layer-num {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.12);
+  line-height: 1;
+}
+
+.layer-head.l4 .layer-num { color: rgba(0,0,0,0.1); }
+
+.layer-tag {
+  font-size: var(--fs-xs);
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.layer-head.l4 .layer-tag { color: rgba(0,0,0,0.35); }
+
+.layer-head h3 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.layer-head.l4 h3 { color: #000000; }
+
+.layer-body {
+  background: #FFFFFF;
+  padding: 22px 24px;
+}
+
+.layer-intro {
+  font-size: var(--fs-base);
+  color: #333333;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  max-width: 680px;
+}
+
+.layer-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 9px;
+  margin-bottom: 15px;
+}
+
+.li {
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 10px;
+  padding: 13px 13px;
+}
+
+.li-icon { font-size: 17px; margin-bottom: 6px; display: block; }
+
+.li h5 {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.li p { font-size: 11.5px; color: #333333; line-height: 1.6; }
+
+.layer-action {
+  background: #F5F5F5;
+  border: 1px solid #D8D8D8;
+  border-left: 3px solid #000000;
+  border-radius: 0 9px 9px 0;
+  padding: 11px 15px;
+  display: flex;
+  gap: 11px;
+}
+
+.la-tag {
+  font-size: var(--fs-xs);
+  letter-spacing: 1.5px;
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: 700;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.la-body { font-size: 12.5px; color: #333333; line-height: 1.65; }
+.la-body strong { color: #000000; }
+
+/* ─── SOURCE CARDS ─── */
+.source-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-bottom: 24px;
+}
+
+.scard {
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.scard-head {
+  padding: 16px 20px 13px;
+  border-bottom: 1px solid #D8D8D8;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.scard-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+
+.si-b { background: #EBEBEB; }
+.si-g { background: #E4E4E4; }
+.si-gr { background: #DADADA; }
+.si-p { background: #D0D0D0; }
+
+.scard-head h4 { font-size: 14px; font-weight: 700; color: #000000; margin-bottom: 2px; }
+.scard-head .author { font-size: 11px; color: #888888; line-height: 1.55; }
+
+.scard-body { padding: 14px 20px; }
+.scard-body p { font-size: 13px; color: #333333; line-height: 1.75; font-style: italic; margin-bottom: 11px; }
+.scard-note { font-size: 11.5px; color: #888888; }
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top:8px; }
+
+.chip {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+}
+
+.chip-b  { background: #EBEBEB; color: #000000; }
+.chip-g  { background: #E4E4E4; color: #111111; }
+.chip-gr { background: #DADADA; color: #222222; }
+.chip-p  { background: #D0D0D0; color: #333333; }
+
+/* ─── CHECKLIST ─── */
+.progress-box {
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+}
+
+.prog-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #888888;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.prog-track {
+  height: 7px;
+  background: #D8D8D8;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #000, #555);
+  border-radius: 100px;
+  transition: width 0.3s;
+  width: 0%;
+}
+
+.cl-group { margin-bottom: 24px; }
+
+.cl-group-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 12px;
+}
+
+.cl-dot {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.cd1 { background: #000000; }
+.cd2 { background: #444444; }
+.cd3 { background: #777777; }
+.cd4 { background: #BBBBBB; color: #000000; }
+
+.cl-group-label {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: #000000;
+}
+
+.cl-group-sub {
+  font-size: var(--fs-xs);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #888888;
+  font-weight: 600;
+}
+
+.cl-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px 14px;
+  padding-left: 41px;
+}
+
+.cl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 13px;
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.cl-box {
+  width: 15px; height: 15px;
+  border-radius: 4px;
+  border: 2px solid #BBBBBB;
+  flex-shrink: 0;
+  margin-top: 1px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cl-box.done {
+  background: #000000;
+  border-color: #000000;
+}
+
+.cl-box.done::after {
+  content: '✓';
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ─── TIMELINE ─── */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+
+.timeline::before {
+  content:'';
+  position:absolute; left:6px; top:6px; bottom:6px;
+  width: 2px;
+  background: linear-gradient(to bottom, #000, #444, #777, #AAA);
+}
+
+.tl-item { position: relative; margin-bottom: 22px; }
+
+.tl-dot {
+  position: absolute;
+  left: -25px; top: 6px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+}
+
+.d1 { background: #000000; }
+.d2 { background: #444444; }
+.d3 { background: #777777; }
+.d4 { background: #AAAAAA; }
+
+.tl-content {
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.tl-phase {
+  font-size: var(--fs-xs);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #888888;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.tl-content h4 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.tl-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px 14px;
+}
+
+.tl-list li {
+  list-style: none;
+  font-size: 12.5px;
+  color: #333333;
+  display: flex;
+  gap: 6px;
+  line-height: 1.5;
+}
+
+.tl-list li::before { content:'·'; color: #000000; font-size: 18px; line-height: 1; flex-shrink:0; }
+
+/* ─── USAGE GUIDE ─── */
+.usage-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 13px;
+  margin-bottom: 22px;
+}
+
+.ucard { border-radius: 13px; overflow: hidden; border: 1px solid #D8D8D8; }
+
+.ucard-head { padding: 16px 18px; }
+.ucard-head.navy  { background: #000000; }
+.ucard-head.blue  { background: #333333; }
+.ucard-head.green { background: #555555; }
+
+.ucard-role {
+  font-size: var(--fs-xs);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ucard-head h4 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.ucard-body { background: #FFFFFF; padding: 16px 18px; }
+
+.ucard-body ul { list-style: none; padding:0; }
+
+.ucard-body ul li {
+  display: flex;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #333333;
+  padding: 5px 0;
+  border-bottom: 1px solid #D8D8D8;
+  line-height: 1.5;
+}
+
+.ucard-body ul li:last-child { border-bottom: none; }
+.ucard-body ul li::before { content: '→'; color: #000000; font-size: 10px; flex-shrink:0; margin-top:3px; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width:820px) {
+  body { flex-direction:column; overflow:auto; }
+  .sidebar { width:100%; min-width:unset; height:auto; flex-direction:row; flex-wrap:wrap; }
+  .s-brand { padding:14px 16px; }
+  .s-footer, .s-group-label { display:none; }
+  .main { height:auto; overflow:visible; }
+  .page { position:static; height:auto; overflow:visible; display:none; }
+  .page.active { display:block; }
+  .pw { padding:24px; }
+  .pillar-grid,.format-grid,.dist-grid,.kol-grid,
+  .layer-items,.source-grid,.stat-row,.quick-cards,
+  .result-row,.usage-grid,.cl-items,.tl-list { grid-template-columns:1fr; }
+  .hero { padding:36px 24px; }
+  .hero-stats { flex-wrap:wrap; }
+  .tab-bar { flex-wrap:wrap; }
+  .apex-banner { padding:28px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════ SIDEBAR ════ -->
+<nav class="sidebar">
+  <div class="s-brand">
+    <div class="s-brand-label">WSE Indonesia · 2026</div>
+    <div class="s-brand-name">Marketing<br><em>Strategy Playbook</em></div>
+  </div>
+
+  <div class="s-group-label">Start Here</div>
+
+  <div class="s-item active" onclick="go('home',this)">
+    <div class="s-item-icon">🏠</div>
+    <div>
+      <div class="s-item-label">Overview</div>
+      <div class="s-item-sub">What this is about</div>
+    </div>
+  </div>
+
+  <div class="s-item" onclick="go('strategy',this)">
+    <div class="s-item-icon">📋</div>
+    <div>
+      <div class="s-item-label">Content Plan</div>
+      <div class="s-item-sub">What we publish</div>
+    </div>
+  </div>
+
+  <div class="s-item" onclick="go('distribution',this)">
+    <div class="s-item-icon">📡</div>
+    <div>
+      <div class="s-item-label">Where We Publish</div>
+      <div class="s-item-sub">Channels & platforms</div>
+    </div>
+  </div>
+
+  <div class="s-item" onclick="go('campaign',this)">
+    <div class="s-item-icon">🎪</div>
+    <div>
+      <div class="s-item-label">Example Campaign</div>
+      <div class="s-item-sub">Glints × WSE Event</div>
+    </div>
+  </div>
+
+  <div class="s-item" onclick="go('kol',this)">
+    <div class="s-item-icon">🎙️</div>
+    <div>
+      <div class="s-item-label">Influencer Program</div>
+      <div class="s-item-sub">Who we work with</div>
+    </div>
+  </div>
+
+  <div class="s-group-label">Framework</div>
+
+  <div class="s-item" onclick="go('apex',this)">
+    <div class="s-item-icon">⬡</div>
+    <div>
+      <div class="s-item-label">APEX Framework</div>
+      <div class="s-item-sub">Our marketing system</div>
+    </div>
+  </div>
+
+  <div class="s-item" onclick="go('methodology',this)">
+    <div class="s-item-icon">📚</div>
+    <div>
+      <div class="s-item-label">Research Behind It</div>
+      <div class="s-item-sub">Books & academic sources</div>
+    </div>
+  </div>
+
+  <div class="s-item" onclick="go('checklist',this)">
+    <div class="s-item-icon">✅</div>
+    <div>
+      <div class="s-item-label">Campaign Checklist</div>
+      <div class="s-item-sub">Step-by-step planner</div>
+    </div>
+  </div>
+
+  <div class="s-item" onclick="go('kpis',this)">
+    <div class="s-item-icon">📊</div>
+    <div>
+      <div class="s-item-label">Goals & Timeline</div>
+      <div class="s-item-sub">What we measure</div>
+    </div>
+  </div>
+
+  <div class="s-footer">
+    Wall Street English Indonesia<br>
+    Gentem Group Marketing · 2026<br>
+    Internal use only — confidential
+  </div>
+</nav>
+
+<!-- ════ MAIN ════ -->
+<div class="main">
+
+<!-- ── HOME ── -->
+<div class="page active" id="page-home">
+  <div class="topbar dark">
+    <div class="topbar-path">Playbook <strong>/ Overview</strong></div>
+    <div class="topbar-tag">Wall Street English Indonesia · 2026</div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-badge">WSE Indonesia · Marketing Strategy 2026</div>
+    <div class="hero-title">
+      How WSE Becomes<br>
+      the <span class="gold">First Answer</span><br>
+      <span class="faded">People Find</span>
+    </div>
+    <p class="hero-desc">A step-by-step marketing plan that helps WSE show up first — not just on Google, but in the new AI tools millions of people use every day to find answers, compare options, and make decisions.</p>
+    <div class="hero-stats">
+      <div class="hstat">
+        <span class="hstat-val">68%</span>
+        <div class="hstat-label">of Google searches<br>now show an AI answer first</div>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val">40%</span>
+        <div class="hstat-label">more visibility when<br>content is AI-optimized</div>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val">4</span>
+        <div class="hstat-label">globally proven<br>frameworks used</div>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val">Q2</span>
+        <div class="hstat-label">2026 launch —<br>results by Q4</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pw wide">
+    <div class="callout dark" style="margin-top:32px;">
+      <p>Imagine someone types "best English course for managers in Jakarta" into Google. Before any website appears, an AI-generated answer shows up at the top. <strong>If WSE is not mentioned in that answer, we have already lost that potential student</strong> — before they even click anything. This plan makes sure WSE is always the one being mentioned.</p>
+    </div>
+
+    <div class="stat-row" style="margin-top:24px;">
+      <div class="stat-card"><span class="stat-val">100<span class="a">+</span></span><div class="stat-label">Articles published on our website by Month 12</div></div>
+      <div class="stat-card"><span class="stat-val">20<span class="a">+</span></span><div class="stat-label">AI searches where WSE appears as the answer</div></div>
+      <div class="stat-card"><span class="stat-val">15<span class="a">+</span></span><div class="stat-label">Features in major Indonesian media per year</div></div>
+      <div class="stat-card"><span class="stat-val">3<span class="a">×</span></span><div class="stat-label">More people finding WSE through search</div></div>
+    </div>
+
+    <div class="h2" style="margin-bottom:14px;">What's in this Playbook</div>
+
+    <div class="quick-cards">
+      <div class="qcard" onclick="go('strategy', getNav('strategy'))">
+        <span class="qcard-icon">📋</span>
+        <div class="qcard-title">Content Plan</div>
+        <div class="qcard-desc">The topics we write about, the formats we use, and why each one helps WSE get found by AI search tools.</div>
+        <div class="qcard-link">Read the Content Plan →</div>
+      </div>
+      <div class="qcard" onclick="go('distribution', getNav('distribution'))">
+        <span class="qcard-icon">📡</span>
+        <div class="qcard-title">Where We Publish</div>
+        <div class="qcard-desc">A clear breakdown of every channel — our own website, media coverage, paid ads, and influencers — and what each one does.</div>
+        <div class="qcard-link">See the Channels →</div>
+      </div>
+      <div class="qcard" onclick="go('campaign', getNav('campaign'))">
+        <span class="qcard-icon">🎪</span>
+        <div class="qcard-title">Example Campaign</div>
+        <div class="qcard-desc">A real, complete example showing how all of this works together — a co-hosted event with Glints, from planning to results.</div>
+        <div class="qcard-link">See the Example →</div>
+      </div>
+      <div class="qcard" onclick="go('apex', getNav('apex'))">
+        <span class="qcard-icon">⬡</span>
+        <div class="qcard-title">The APEX System</div>
+        <div class="qcard-desc">The four-step marketing framework that any team member can follow to plan and run any campaign the right way.</div>
+        <div class="qcard-link">See the Framework →</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTENT STRATEGY ── -->
+<div class="page" id="page-strategy">
+  <div class="topbar">
+    <div class="topbar-path">Playbook <strong>/ Content Plan</strong></div>
+    <div class="topbar-tag">What We Write & Why</div>
+  </div>
+  <div class="pw wide">
+    <span class="eyebrow">Content Plan</span>
+    <h1 class="page-h1">6 Topics That Make<br><em>AI Recommend WSE</em></h1>
+    <p class="page-lead">Every article, video, and post we create fits into one of these six topics. These are the exact topics that AI tools like Google, ChatGPT, and Perplexity are asked about most — and where we want WSE to be the answer.</p>
+
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-num">Topic 1</div>
+        <h4>How to Learn English</h4>
+        <p>Helpful guides on grammar, speaking fluency, accent improvement, and business English. AI search loves clear, useful how-to content.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Topic 2</div>
+        <h4>English for Your Career</h4>
+        <p>Real data on how English affects salaries and promotions in Indonesia. Stories from professionals who advanced because of better English.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Topic 3</div>
+        <h4>English in Indonesia</h4>
+        <p>Research on English skills in Indonesian workplaces, industries that demand English most, and how Indonesia compares globally.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Topic 4</div>
+        <h4>The WSE Method & Success Stories</h4>
+        <p>Explaining how WSE teaches, and real stories from students who improved. This proves WSE works — which is what AI uses to verify a brand's credibility.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Topic 5</div>
+        <h4>Comparing English Courses</h4>
+        <p>"WSE vs other courses," "online vs offline," "group vs private classes." Comparison content is one of the most-searched topics — and AI loves to cite it.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Topic 6</div>
+        <h4>English for Different Life Stages</h4>
+        <p>Kids, teenagers, working professionals, executives, corporate teams. Separate content for each group means we show up for every type of search.</p>
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <div class="h2" style="margin-bottom:10px;">The 8 Best Content Types for AI Visibility</div>
+    <p class="body-text">Not all content is equal. These 8 formats are the ones AI tools actually pull from when answering a question. The first four are the most powerful.</p>
+
+    <div class="format-grid">
+      <div class="fmt">
+        <span class="fmt-emoji">📋</span>
+        <h4>In-Depth Guides</h4>
+        <p>Long, thorough articles that fully answer one question. These are what AI cites most often.</p>
+      </div>
+      <div class="fmt">
+        <span class="fmt-emoji">❓</span>
+        <h4>Q&A Pages</h4>
+        <p>Pages that answer specific questions directly. They mirror exactly how people ask AI tools.</p>
+      </div>
+      <div class="fmt">
+        <span class="fmt-emoji">📊</span>
+        <h4>Research & Data</h4>
+        <p>Original surveys or data reports. AI loves to cite numbers — this is our biggest credibility booster.</p>
+      </div>
+      <div class="fmt">
+        <span class="fmt-emoji">🏆</span>
+        <h4>Comparison Articles</h4>
+        <p>Helping people choose between options. These capture readers right before they make a decision.</p>
+      </div>
+      <div class="fmt">
+        <span class="fmt-emoji">🎬</span>
+        <h4>Video + Written Script</h4>
+        <p>YouTube videos with a full written version. AI reads the text — so always publish both.</p>
+      </div>
+      <div class="fmt">
+        <span class="fmt-emoji">🎙️</span>
+        <h4>Podcast Episodes</h4>
+        <p>Audio content on Spotify and Apple — with written show notes that get indexed online.</p>
+      </div>
+      <div class="fmt">
+        <span class="fmt-emoji">💼</span>
+        <h4>Student Success Stories</h4>
+        <p>Real stories with specific results: "Got promoted 6 months after finishing WSE." Specific and believable.</p>
+      </div>
+      <div class="fmt">
+        <span class="fmt-emoji">📰</span>
+        <h4>Press Releases</h4>
+        <p>Official announcements that get picked up by news sites — building WSE's credibility with AI systems.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DISTRIBUTION ── -->
+<div class="page" id="page-distribution">
+  <div class="topbar">
+    <div class="topbar-path">Playbook <strong>/ Where We Publish</strong></div>
+    <div class="topbar-tag">4 Channels, 1 Strategy</div>
+  </div>
+  <div class="pw wide">
+    <span class="eyebrow">Distribution Plan</span>
+    <h1 class="page-h1">4 Ways We Get<br><em>WSE in Front of People</em></h1>
+    <p class="page-lead">We don't rely on just one channel. Think of these four as a team — each one does something the others can't. All four need to be active for the strategy to work.</p>
+
+    <div class="tab-bar">
+      <div class="tab active" onclick="showTab('own',this)">🏠 Our Own Channels</div>
+      <div class="tab" onclick="showTab('earn',this)">📰 Media Coverage</div>
+      <div class="tab" onclick="showTab('paid',this)">💰 Paid Ads</div>
+      <div class="tab" onclick="showTab('kol',this)">🎙️ Influencers</div>
+    </div>
+
+    <div class="tab-panel active" id="tab-own">
+      <div class="callout blue-lt" style="margin-bottom:18px;">
+        <p><strong>Our own channels are the foundation.</strong> This is the content we fully control — our website, YouTube, and social media. Everything AI learns about WSE starts here. If our own channels are weak, the rest of the strategy won't work.</p>
+      </div>
+      <div class="dist-grid">
+        <div class="dc">
+          <div class="dc-top"><h4>WSE Website & Blog</h4><span class="pill must">Must-Have</span></div>
+          <ul>
+            <li>Publish 8–12 articles per month covering our 6 content topics</li>
+            <li>Write every article in a format that AI can easily read and quote</li>
+            <li>Make sure each article answers a specific question someone might type into Google</li>
+            <li>Include real data and local Indonesia context in every piece</li>
+            <li>Link articles to each other so AI sees WSE as a deep, trusted source</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>YouTube Channel</h4><span class="pill must">Must-Have</span></div>
+          <ul>
+            <li>Post one video per week on English tips, student journeys, and WSE programs</li>
+            <li>Always publish a full written version of every video on our blog</li>
+            <li>Add clear chapter markers — this helps AI understand what the video covers</li>
+            <li>Build a series of videos from WSE teachers as thought leaders</li>
+            <li>Target: 50+ videos covering key English learning topics</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>Google Business Profile</h4><span class="pill key">Important</span></div>
+          <ul>
+            <li>Fully fill out WSE's profile for every branch location</li>
+            <li>Post weekly updates with content highlights and promotions</li>
+            <li>Write clear, helpful answers in the Q&A section</li>
+            <li>Respond to every review — AI uses this to judge brand trustworthiness</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>LinkedIn Page</h4><span class="pill key">Important</span></div>
+          <ul>
+            <li>Share content aimed at HR managers and corporate decision-makers</li>
+            <li>Publish LinkedIn articles monthly — these get indexed by Google</li>
+            <li>Encourage WSE staff and teachers to share their own professional stories</li>
+            <li>Target: companies looking for English training programs for their teams</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-earn">
+      <div class="callout gold-lt" style="margin-bottom:18px;">
+        <p><strong>Media coverage is how AI learns to trust WSE.</strong> When a respected news site or blog mentions WSE, AI systems treat that as a vote of confidence. The more trusted the website, the more it helps WSE show up in AI answers. This is not advertising — this is earned trust.</p>
+      </div>
+      <div class="dist-grid">
+        <div class="dc">
+          <div class="dc-top"><h4>Indonesian Education & News Media</h4><span class="pill must">Priority</span></div>
+          <ul>
+            <li><strong>Kompas.com</strong> — Articles about English skills in Indonesia's workforce</li>
+            <li><strong>Detik.com</strong> — Press releases and news features about WSE</li>
+            <li><strong>Republika Edukasi</strong> — WSE teaching method and student results</li>
+            <li><strong>Tirto.id</strong> — Data-based stories on English in Indonesia</li>
+            <li>Goal: at least 2–3 media features every month</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>Career & Business Media</h4><span class="pill must">Priority</span></div>
+          <ul>
+            <li><strong>Glints Blog</strong> — "English Skills That Help You Get Hired"</li>
+            <li><strong>Kalibrr / JobStreet Blog</strong> — Career development and English</li>
+            <li><strong>SWA.co.id</strong> — HR training and corporate team English programs</li>
+            <li><strong>Bisnis.com</strong> — Business English and return on investment stories</li>
+            <li>Submit expert articles and research every quarter</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>Lifestyle & General Audience</h4><span class="pill core">Supporting</span></div>
+          <ul>
+            <li><strong>IDN Times</strong> — Easy-to-read English learning tips and lists</li>
+            <li><strong>Female Daily</strong> — English confidence for professional women</li>
+            <li><strong>Popbela / Cosmopolitan ID</strong> — English for young professionals</li>
+            <li>These reach a wider audience and help build general brand awareness</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>Press Release Services</h4><span class="pill core">Amplifier</span></div>
+          <ul>
+            <li><strong>Antara / JPNN</strong> — Indonesian newswire to reach local media</li>
+            <li><strong>PRNewswire Asia</strong> — International distribution for bigger announcements</li>
+            <li>Send a press release every month tied to a WSE milestone or event</li>
+            <li>This gets WSE's name into AI training databases at scale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-paid">
+      <div class="callout green-lt" style="margin-bottom:18px;">
+        <p><strong>Paid ads speed things up — but they don't replace content.</strong> Think of ads as a loudspeaker for the good content and results we've already built. When someone searches for "English course in Jakarta," paid ads make sure WSE appears immediately while our organic content builds in the background.</p>
+      </div>
+      <div class="dist-grid">
+        <div class="dc">
+          <div class="dc-top"><h4>Google Ads</h4><span class="pill must">Always On</span></div>
+          <ul>
+            <li>Show up at the top when people search "English course Jakarta" or similar</li>
+            <li>Run ads for both the WSE brand name and general English course searches</li>
+            <li>Use Google's Performance Max campaign to find new potential students</li>
+            <li>Test different ad messages and let Google's AI find what works best</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>Facebook & Instagram Ads</h4><span class="pill must">Always On</span></div>
+          <ul>
+            <li>Reach working professionals aged 22–45 interested in career growth</li>
+            <li>Run lead forms so interested people can sign up directly from the ad</li>
+            <li>Use video ads showing real student transformations and WSE classes</li>
+            <li>Retarget people who visited our website but didn't sign up yet</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>TikTok Ads</h4><span class="pill key">Growth</span></div>
+          <ul>
+            <li>Reach younger professionals (18–30) on Indonesia's fastest-growing platform</li>
+            <li>Promote our best influencer content as paid ads to reach more people</li>
+            <li>TikTok now has its own search feature — people look for English tips there too</li>
+            <li>Short, engaging videos showing quick English tips that lead to WSE</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>LinkedIn Ads & Display</h4><span class="pill core">Reach</span></div>
+          <ul>
+            <li>Target HR managers and company decision-makers directly on LinkedIn</li>
+            <li>Promote WSE's corporate English training programs to businesses</li>
+            <li>Display banner ads on education and career websites across Indonesia</li>
+            <li>Re-show ads to people who showed interest but didn't take action</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-kol">
+      <div class="callout purple-lt" style="margin-bottom:18px;">
+        <p><strong>The most important rule for influencers:</strong> An influencer who writes a detailed YouTube review with a full written article is worth far more than one who posts an Instagram Story. Why? Because YouTube videos and blog posts get indexed — AI can read them. Instagram Stories disappear. Every influencer brief must require written, indexed content.</p>
+      </div>
+      <div class="dist-grid">
+        <div class="dc">
+          <div class="dc-top"><h4>YouTube Creators</h4><span class="pill must">Highest Value</span></div>
+          <ul>
+            <li>100K–500K subscribers, English learning or career content</li>
+            <li>They create a full review video: "I tried WSE for 3 months"</li>
+            <li>We require a full written article to accompany every video</li>
+            <li>This is our most powerful influencer format for AI visibility</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>Career Influencers on LinkedIn</h4><span class="pill must">High Value</span></div>
+          <ul>
+            <li>50K–200K followers, career and workplace advice content</li>
+            <li>They share a personal story about how English helped their career</li>
+            <li>LinkedIn articles are fully searchable and indexed by Google</li>
+            <li>Reaches working professionals who are most likely to enroll</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>English Micro-Influencers</h4><span class="pill key">Volume</span></div>
+          <ul>
+            <li>30K–150K followers on TikTok or Instagram</li>
+            <li>Create a short series: "3 English phrases that make you sound professional"</li>
+            <li>Tied directly to WSE content — feels helpful, not like an ad</li>
+            <li>Best-performing post gets boosted as a paid ad</li>
+          </ul>
+        </div>
+        <div class="dc">
+          <div class="dc-top"><h4>Podcast Hosts & Bloggers</h4><span class="pill core">Authority</span></div>
+          <ul>
+            <li>Invite WSE teachers or alumni to guest on popular career podcasts</li>
+            <li>Written show notes from every episode become searchable articles</li>
+            <li>Independent bloggers who review WSE honestly — we share their content</li>
+            <li>These carry weight because they feel independent and unbiased</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CAMPAIGN ── -->
+<div class="page" id="page-campaign">
+  <div class="topbar">
+    <div class="topbar-path">Playbook <strong>/ Example Campaign</strong></div>
+    <div class="topbar-tag">Glints × WSE — Speak to Lead</div>
+  </div>
+  <div class="pw wide">
+    <span class="eyebrow">Real Campaign Example</span>
+
+    <div class="camp-hero">
+      <div class="camp-tag">Partnership Event · Jakarta & Bandung · Q2–Q4 2026</div>
+      <h2>Glints × Wall Street English:<br>"Speak to Lead" — Business English Summit</h2>
+      <p>A half-day event for mid and senior professionals, co-hosted with Glints. This is not just an event — it's a content machine that generates articles, videos, press coverage, and influencer posts all at once. One event, 8–12 pieces of content that appear in AI search.</p>
+    </div>
+
+    <div class="result-row">
+      <div class="rcard"><span class="rcard-val">500<span class="a">+</span></span><div class="rcard-label">Qualified leads per event</div></div>
+      <div class="rcard"><span class="rcard-val">8<span class="a">+</span></span><div class="rcard-label">Content pieces published online</div></div>
+      <div class="rcard"><span class="rcard-val">4<span class="a">×</span></span><div class="rcard-label">Events per year</div></div>
+      <div class="rcard"><span class="rcard-val">1M<span class="a">+</span></span><div class="rcard-label">People reached via Glints emails</div></div>
+    </div>
+
+    <div class="h3">Why partner with Glints?</div>
+    <p class="body-text">Glints is Indonesia's largest career platform with 9 million+ users. Their audience is exactly who WSE wants to reach — ambitious professionals who want to grow. And crucially, <strong>the Glints Blog is indexed by Google</strong> — any article about WSE published there becomes an AI citation signal.</p>
+
+    <div class="h3" style="margin-top:24px;">Event Programme</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>Time</th><th>Session</th><th>Why It Matters for WSE</th><th>Type</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>09.00</td>
+          <td>"The English Confidence Gap in Indonesian Leadership" — WSE Director + Glints Country Head</td>
+          <td>Positions WSE as the expert voice. The data from this talk becomes a citable article.</td>
+          <td><span class="tpill earn">Keynote</span></td>
+        </tr>
+        <tr>
+          <td>09.45</td>
+          <td>"English for Pitching" — How to Win Rooms in English · WSE Trainer + Startup Founder</td>
+          <td>Shows WSE's teaching quality live. Attendees experience the WSE method firsthand.</td>
+          <td><span class="tpill kol">Workshop</span></td>
+        </tr>
+        <tr>
+          <td>10.45</td>
+          <td>"English for Managers" — Leading Teams in English · WSE Corporate Program Head</td>
+          <td>Introduces WSE's corporate program. A real alumni manager shares their story.</td>
+          <td><span class="tpill kol">Workshop</span></td>
+        </tr>
+        <tr>
+          <td>11.30</td>
+          <td>Panel: "Does English Proficiency Actually Affect Your Salary?" · HR Directors + Glints</td>
+          <td>Glints publishes a data report after this. WSE is named as the education partner.</td>
+          <td><span class="tpill paid">Panel</span></td>
+        </tr>
+        <tr>
+          <td>12.15</td>
+          <td>Free WSE English Level Check + Networking Lunch</td>
+          <td>Every attendee gets a free WSE assessment — direct pipeline to enrollment.</td>
+          <td><span class="tpill own">Leads</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="h3">All the Content This One Event Creates</div>
+    <p class="note" style="margin-bottom:14px;">This is why events are so valuable — they create months' worth of content in a single day.</p>
+
+    <table class="tbl">
+      <thead>
+        <tr><th>What We Publish</th><th>Where</th><th>Type</th><th>What It Does for AI</th><th>When</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Guide: "English for Indonesian Managers"</td>
+          <td>WSE Website</td>
+          <td><span class="tpill own">Owned</span></td>
+          <td>AI cites this when someone searches "English for managers"</td>
+          <td>3 weeks before</td>
+        </tr>
+        <tr>
+          <td>Event recap article with key quotes & data</td>
+          <td>Glints Blog</td>
+          <td><span class="tpill earn">Earned</span></td>
+          <td>A trusted site mentioning WSE = strong AI trust signal</td>
+          <td>2 days after</td>
+        </tr>
+        <tr>
+          <td>"WSE × Glints English at Work Report 2026"</td>
+          <td>Both sites</td>
+          <td><span class="tpill earn">Earned</span></td>
+          <td>Real data = the #1 thing AI loves to cite and reference</td>
+          <td>1 week after</td>
+        </tr>
+        <tr>
+          <td>Press release to Kompas, Detik, Antara</td>
+          <td>Major news sites</td>
+          <td><span class="tpill earn">Earned</span></td>
+          <td>News coverage tells AI that WSE is a real, credible brand</td>
+          <td>Launch day</td>
+        </tr>
+        <tr>
+          <td>Full event video + written transcript</td>
+          <td>YouTube + Blog</td>
+          <td><span class="tpill own">Owned</span></td>
+          <td>YouTube is indexed by Google AI — transcript gives AI the full text</td>
+          <td>3 days after</td>
+        </tr>
+        <tr>
+          <td>Influencer recap videos (YouTube, TikTok, IG)</td>
+          <td>Influencer pages</td>
+          <td><span class="tpill kol">Influencer</span></td>
+          <td>Third-party mentions of WSE build social proof and search signals</td>
+          <td>1 day after</td>
+        </tr>
+        <tr>
+          <td>Facebook & Instagram ads to event audience</td>
+          <td>Meta Ads</td>
+          <td><span class="tpill paid">Paid</span></td>
+          <td>Captures people who showed interest and converts them to leads</td>
+          <td>During + after</td>
+        </tr>
+        <tr>
+          <td>3-part email series: "English for Leadership"</td>
+          <td>Email + Glints Newsletter</td>
+          <td><span class="tpill own">Owned</span></td>
+          <td>Nurtures attendees toward enrollment with helpful content</td>
+          <td>3 days after</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ── KOL ── -->
+<div class="page" id="page-kol">
+  <div class="topbar">
+    <div class="topbar-path">Playbook <strong>/ Influencer Program</strong></div>
+    <div class="topbar-tag">Who We Work With & Why</div>
+  </div>
+  <div class="pw wide">
+    <span class="eyebrow">Influencer Program</span>
+    <h1 class="page-h1">Influencers Who Actually<br><em>Help WSE Get Found</em></h1>
+    <p class="page-lead">Not all influencers are equal for what we're trying to do. We look for creators whose content gets indexed online — meaning AI can read it, store it, and later use it to recommend WSE.</p>
+
+    <div class="callout dark" style="margin-bottom:28px;">
+      <p>Here is the simple rule: <strong>an influencer who writes a long YouTube review with a text article is 10× more valuable than one who posts an Instagram Story.</strong> Stories disappear. YouTube videos and blog posts live online permanently — and AI reads them. Every brief we write must include a requirement for written, published content.</p>
+    </div>
+
+    <div class="kol-grid">
+      <div class="kcard">
+        <div class="kcard-top">
+          <div class="kcard-av a">👩‍💼</div>
+          <div class="kcard-info"><h4>Career Influencer on LinkedIn</h4><span>50K–200K followers</span></div>
+        </div>
+        <span class="kcard-type kt-a">Career & Workplace</span>
+        <p class="kcard-brief">What we ask them to do: write a personal LinkedIn article about how English helped their career, mentioning WSE naturally. LinkedIn articles are indexed by Google — every word becomes searchable and AI-readable.</p>
+        <div class="kcard-meta"><span>LinkedIn + Blog</span><span>3 posts per event</span></div>
+      </div>
+
+      <div class="kcard">
+        <div class="kcard-top">
+          <div class="kcard-av b">🎬</div>
+          <div class="kcard-info"><h4>Educational YouTuber</h4><span>100K–500K subscribers</span></div>
+        </div>
+        <span class="kcard-type kt-b">English & Education</span>
+        <p class="kcard-brief">What we ask them to do: create an honest review video — "I tried WSE for 3 months, here's what happened." 15–30 minutes long, with a full written article published alongside it. This is our most valuable influencer format.</p>
+        <div class="kcard-meta"><span>YouTube + Blog</span><span>1 video per event</span></div>
+      </div>
+
+      <div class="kcard">
+        <div class="kcard-top">
+          <div class="kcard-av c">🎙️</div>
+          <div class="kcard-info"><h4>Podcast Host</h4><span>Top Indonesia career podcasts</span></div>
+        </div>
+        <span class="kcard-type kt-c">Business & Career</span>
+        <p class="kcard-brief">What we ask them to do: invite a WSE teacher or successful alumni as a podcast guest. The episode gets published with detailed written show notes — which become a searchable article that AI can find and cite.</p>
+        <div class="kcard-meta"><span>Podcast + Blog</span><span>1 episode per quarter</span></div>
+      </div>
+
+      <div class="kcard">
+        <div class="kcard-top">
+          <div class="kcard-av a">📱</div>
+          <div class="kcard-info"><h4>English Tips Creator</h4><span>30K–150K on TikTok / IG</span></div>
+        </div>
+        <span class="kcard-type kt-a">English Content</span>
+        <p class="kcard-brief">What we ask them to do: create a short 3-part series like "English phrases that make you sound like a manager" — tied to WSE. We then pay to promote their best-performing video to a wider audience.</p>
+        <div class="kcard-meta"><span>TikTok + Instagram</span><span>3 posts per event</span></div>
+      </div>
+
+      <div class="kcard">
+        <div class="kcard-top">
+          <div class="kcard-av b">✍️</div>
+          <div class="kcard-info"><h4>Career Blogger or Writer</h4><span>Independent or media contributor</span></div>
+        </div>
+        <span class="kcard-type kt-b">Editorial</span>
+        <p class="kcard-brief">What we ask them to do: write an honest review article — "I tested Wall Street English — here's my real experience." Published on their website or as a guest article on Glints/Kalibrr. Their independent voice is more trusted by AI than our own content.</p>
+        <div class="kcard-meta"><span>Blog / Guest Article</span><span>1 article per quarter</span></div>
+      </div>
+
+      <div class="kcard">
+        <div class="kcard-top">
+          <div class="kcard-av c">👔</div>
+          <div class="kcard-info"><h4>WSE Alumni — Senior Professional</h4><span>Director / VP level, LinkedIn</span></div>
+        </div>
+        <span class="kcard-type kt-c">Real Testimony</span>
+        <p class="kcard-brief">What we ask them to do: share their genuine story about how WSE helped their team or career. A LinkedIn post plus a co-written article on the WSE blog. Because they are real, named professionals, AI treats this as highly credible evidence.</p>
+        <div class="kcard-meta"><span>LinkedIn + WSE Blog</span><span>1 story per quarter</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── APEX ── -->
+<div class="page" id="page-apex">
+  <div class="topbar dark">
+    <div class="topbar-path">Playbook <strong>/ APEX Framework</strong></div>
+    <div class="topbar-tag">Our 4-Step Marketing System</div>
+  </div>
+
+  <div class="apex-banner">
+    <div class="apex-letters">
+      <div class="al"><span class="al-ch">A</span><span class="al-word">Authority</span></div>
+      <div class="al"><span class="al-ch">P</span><span class="al-word">Presence</span></div>
+      <div class="al"><span class="al-ch">E</span><span class="al-word">Experience</span></div>
+      <div class="al"><span class="al-ch">X</span><span class="al-word">eXpansion</span></div>
+    </div>
+    <div class="apex-banner-title">The <em>APEX</em> Framework<br>WSE's Marketing Operating System</div>
+    <p class="apex-banner-desc">Every campaign — big or small — must follow these four steps in order. Skip one, and the campaign will underperform. Follow all four, and WSE builds lasting visibility that compounds over time.</p>
+  </div>
+
+  <div class="pw wide">
+    <div style="margin-top:32px; margin-bottom:20px; font-size:15px; color:#333333; line-height:1.8; max-width:680px;">
+      Think of APEX like building a house. You need the foundation first (A), then the walls (P), then make it livable (E), and finally grow it over time (X). Every campaign starts at A and works through to X.
+    </div>
+
+    <div class="layer">
+      <div class="layer-head l1">
+        <div class="layer-num">1</div>
+        <div>
+          <div class="layer-tag">Step 1 of 4 · Brand Foundation</div>
+          <h3>A — Authority: Agree on What WSE Stands For</h3>
+        </div>
+      </div>
+      <div class="layer-body">
+        <p class="layer-intro">Before writing a single word or spending a single rupiah, every team member must agree on the same answers: Who is WSE for right now? What do we want people to feel when they think of WSE? What makes us different from other English courses? This step takes 30 minutes — but skipping it causes months of confusion.</p>
+        <div class="layer-items">
+          <div class="li"><span class="li-icon">🎯</span><h5>Our Core Promise</h5><p>Premium quality, real transformation, proven method, global credibility. This stays the same in every campaign.</p></div>
+          <div class="li"><span class="li-icon">💡</span><h5>What We Offer Each Person</h5><p>Practical English skills (functional). Confidence to speak up at work (emotional). Becoming someone who connects with the world (personal).</p></div>
+          <div class="li"><span class="li-icon">🧬</span><h5>Our Personality</h5><p>Expert but friendly. Global but Indonesia-aware. Premium but practical. Every piece of content must feel like this.</p></div>
+          <div class="li"><span class="li-icon">🏛️</span><h5>Our Track Record</h5><p>50+ years globally, proven results. This is what makes AI and humans trust us — and it must appear in our content.</p></div>
+          <div class="li"><span class="li-icon">📍</span><h5>Who This Campaign Is For</h5><p>Executives care about leadership. Professionals care about promotion. Students care about opportunity. Companies care about team ROI. Pick one focus.</p></div>
+          <div class="li"><span class="li-icon">🖼️</span><h5>Look & Feel</h5><p>All visuals, colours, and writing must match WSE's global brand guidelines. Consistency builds recognition.</p></div>
+        </div>
+        <div class="layer-action">
+          <div class="la-tag">Action</div>
+          <div class="la-body">Before every campaign: <strong>hold a 30-minute alignment meeting. Write down the target audience, the one main message, and the brand personality check.</strong> All team members — brand, sales, content — must sign off before moving to Step 2.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer">
+      <div class="layer-head l2">
+        <div class="layer-num">2</div>
+        <div>
+          <div class="layer-tag">Step 2 of 4 · Build Visibility</div>
+          <h3>P — Presence: Make Sure People (and AI) Can Find Us</h3>
+        </div>
+      </div>
+      <div class="layer-body">
+        <p class="layer-intro">Now we create and publish content that helps people discover WSE — through our own website, through news media, and through AI search tools. The goal is simple: when someone searches anything related to English learning in Indonesia, WSE should appear.</p>
+        <div class="layer-items">
+          <div class="li"><span class="li-icon">📰</span><h5>Our Own Content</h5><p>8–12 articles per month. YouTube videos with written transcripts. LinkedIn articles. This is the base everything else builds on.</p></div>
+          <div class="li"><span class="li-icon">🗞️</span><h5>Media Coverage</h5><p>Features on Kompas, Detik, Glints, SWA. When trusted sites mention WSE, AI learns to trust WSE too.</p></div>
+          <div class="li"><span class="li-icon">🤖</span><h5>Writing for AI</h5><p>Every article must answer a specific question, include real numbers, and be structured so AI can easily read and quote it.</p></div>
+          <div class="li"><span class="li-icon">📊</span><h5>Our Own Research</h5><p>"WSE English in Indonesia Report 2026." Publishing our own data is the single most powerful thing we can do for AI visibility.</p></div>
+          <div class="li"><span class="li-icon">📣</span><h5>News & Announcements</h5><p>Monthly press releases sent to Antara, Detik, and wire services. Gets WSE into Google News and AI training data.</p></div>
+          <div class="li"><span class="li-icon">🗺️</span><h5>Google Maps Profiles</h5><p>Fully updated Google Business profile for every branch. AI uses this for "English course near me" searches.</p></div>
+        </div>
+        <div class="layer-action">
+          <div class="la-tag">Action</div>
+          <div class="la-body">Every campaign needs: <strong>at least 1 article on our website + 1 feature in an external media + 1 press release.</strong> Before publishing anything, check: Does this answer a real question? Does it include data? Can an AI easily read and quote this?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer">
+      <div class="layer-head l3">
+        <div class="layer-num">3</div>
+        <div>
+          <div class="layer-tag">Step 3 of 4 · Build Connection</div>
+          <h3>E — Experience: Make People Feel Something About WSE</h3>
+        </div>
+      </div>
+      <div class="layer-body">
+        <p class="layer-intro">People have heard of WSE. Now they need to feel connected to it. This step is about creating real experiences — events, influencer stories, ads, and free tools — that turn awareness into genuine interest and trust.</p>
+        <div class="layer-items">
+          <div class="li"><span class="li-icon">🎬</span><h5>Influencer Stories</h5><p>YouTube reviews, LinkedIn articles, podcast episodes. At least 2 influencers per campaign, both required to publish written content online.</p></div>
+          <div class="li"><span class="li-icon">🎪</span><h5>Events & Workshops</h5><p>The Glints × WSE model. One event generates 8–12 pieces of content. The highest-return activity in our entire plan.</p></div>
+          <div class="li"><span class="li-icon">💰</span><h5>Paid Ads</h5><p>Facebook, Instagram, Google, TikTok. Ads amplify the content we've already made — they never replace real content.</p></div>
+          <div class="li"><span class="li-icon">🎭</span><h5>Real Student Stories</h5><p>Named alumni sharing specific results. "Got a promotion 6 months after WSE." Specific, named, real — AI and humans both trust these.</p></div>
+          <div class="li"><span class="li-icon">📧</span><h5>Follow-Up Emails</h5><p>A series of 3–5 helpful emails after someone shows interest. Content-focused, not pushy. Links back to our articles.</p></div>
+          <div class="li"><span class="li-icon">🧪</span><h5>Free Tools</h5><p>Free English Level Assessment. Easy, no-commitment entry point. Shows WSE quality before asking anyone to pay.</p></div>
+        </div>
+        <div class="layer-action">
+          <div class="la-tag">Action</div>
+          <div class="la-body">Every campaign: <strong>activate at least 2 influencers who publish written content + run ads + offer a free entry point (assessment or guide).</strong> If there's an event, the influencer must attend and publish their review within 48 hours.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer">
+      <div class="layer-head l4">
+        <div class="layer-num">4</div>
+        <div>
+          <div class="layer-tag">Step 4 of 4 · Long-Term Growth</div>
+          <h3>X — eXpansion: Build Something That Grows Itself</h3>
+        </div>
+      </div>
+      <div class="layer-body">
+        <p class="layer-intro">This is the long game. The first three steps run every campaign. This step is what happens when you do those three steps consistently for 6–12 months — the results start to build on themselves. More content means more AI visibility. More alumni means more referrals. More referrals means lower cost to get new students.</p>
+        <div class="layer-items">
+          <div class="li"><span class="li-icon">🏆</span><h5>Happy Students Refer Friends</h5><p>Build an alumni network with events and perks. Word-of-mouth is still the most trusted form of marketing — and it costs nothing.</p></div>
+          <div class="li"><span class="li-icon">📚</span><h5>Content That Keeps Working</h5><p>A 100-article library doesn't stop working when the campaign ends. Each article keeps bringing people to WSE 24 hours a day.</p></div>
+          <div class="li"><span class="li-icon">🔁</span><h5>Annual Research Report</h5><p>"WSE English Impact Report — Indonesia 2026." Publish once a year. Become the go-to source AI cites for English learning data in Indonesia.</p></div>
+          <div class="li"><span class="li-icon">🌐</span><h5>WSE as a Recognized Name Online</h5><p>Wikipedia page, Google Knowledge Panel, consistent presence across platforms. Makes AI recognise WSE as a verified, established brand.</p></div>
+          <div class="li"><span class="li-icon">🤝</span><h5>Ongoing Partnerships</h5><p>Formal agreements with Glints, SWA, Kompas for regular co-created content. Each partnership creates content at no additional production cost.</p></div>
+          <div class="li"><span class="li-icon">📈</span><h5>Monthly Health Check</h5><p>Every month: check if WSE appears in AI search for 20+ target questions. Every quarter: publish a new data report. Never go 30 days without new published content.</p></div>
+        </div>
+        <div class="layer-action">
+          <div class="la-tag">Action</div>
+          <div class="la-body">Ongoing: <strong>treat every piece of content as a long-term investment, not a one-time campaign.</strong> Link every new article to existing ones. Check AI appearances monthly. The brands that win AI search are the ones that never stop publishing.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep">
+    <div class="h2" style="margin-bottom:14px;">Who Does What</div>
+    <div class="usage-grid">
+      <div class="ucard">
+        <div class="ucard-head navy">
+          <div class="ucard-role">Senior Leadership</div>
+          <h4>Management Team</h4>
+        </div>
+        <div class="ucard-body">
+          <ul>
+            <li>Approve Step A (brand identity) once a year — set the direction</li>
+            <li>Review Step X results monthly: are we appearing in AI search?</li>
+            <li>Approve event and partnership budgets using the Glints ROI model</li>
+            <li>Use this framework when presenting the marketing plan to stakeholders</li>
+            <li>Ask: "Has this campaign gone through all 4 APEX steps?" before approving</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ucard">
+        <div class="ucard-head blue">
+          <div class="ucard-role">Marketing Team</div>
+          <h4>Brand Managers</h4>
+        </div>
+        <div class="ucard-body">
+          <ul>
+            <li>Run the Step A alignment session at the start of every campaign</li>
+            <li>Plan the full content and channel mix before launch (Step P)</li>
+            <li>Check every article before publishing: does it answer a real question? Does it have data?</li>
+            <li>Brief every influencer with a written content requirement</li>
+            <li>Check monthly: which AI searches is WSE appearing in?</li>
+            <li>Report results to management using the KPI table</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ucard">
+        <div class="ucard-head green">
+          <div class="ucard-role">Sales Team</div>
+          <h4>Sales & Enrolment</h4>
+        </div>
+        <div class="ucard-body">
+          <ul>
+            <li>Share WSE blog articles and YouTube videos with interested prospects</li>
+            <li>Use Kompas and Glints features as third-party proof in your sales conversations</li>
+            <li>Track where each lead came from: event, influencer, ad, or search</li>
+            <li>Tell the marketing team when alumni refer friends — this is our best signal</li>
+            <li>Offer the free English Assessment as the first step in every conversation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── METHODOLOGY ── -->
+<div class="page" id="page-methodology">
+  <div class="topbar">
+    <div class="topbar-path">Playbook <strong>/ Research Behind It</strong></div>
+    <div class="topbar-tag">Books & Academic Sources</div>
+  </div>
+  <div class="pw">
+    <span class="eyebrow">Why We Trust This Approach</span>
+    <h1 class="page-h1">This Strategy Is Built on<br><em>Proven Research</em></h1>
+    <p class="page-lead">The APEX Framework didn't come from guesswork. Every part of it is based on well-known books and studies used by marketing teams at major companies around the world. Here is where each piece comes from.</p>
+
+    <div class="source-grid">
+      <div class="scard">
+        <div class="scard-head">
+          <div class="scard-icon si-b">🏛️</div>
+          <div>
+            <h4>Aaker Brand Identity Model</h4>
+            <div class="author">David Aaker · "Building Strong Brands" (1996)<br>UC Berkeley Haas Business School<br>Known as "The Father of Modern Branding"</div>
+          </div>
+        </div>
+        <div class="scard-body">
+          <p>"A brand is more than a logo or a product. It is a set of associations and promises — and building those consistently is what creates lasting business value."</p>
+          <div class="scard-note">This gives us <strong>Step A</strong> — the idea that before we do anything, we must be crystal clear about what WSE stands for. Aaker's model is how we define WSE's identity, personality, and promise.</div>
+          <div class="chip-row">
+            <span class="chip chip-b">Brand Identity</span>
+            <span class="chip chip-b">Brand Promise</span>
+            <span class="chip chip-b">Brand Personality</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scard">
+        <div class="scard-head">
+          <div class="scard-icon si-p">🔺</div>
+          <div>
+            <h4>Keller Brand Pyramid (CBBE)</h4>
+            <div class="author">Kevin Lane Keller · "Strategic Brand Management" (1998)<br>Dartmouth Tuck School of Business<br>Used in 200+ business schools globally</div>
+          </div>
+        </div>
+        <div class="scard-body">
+          <p>"Building a strong brand means guiding customers through a journey — from simply knowing who you are, all the way to becoming someone who genuinely loves and recommends your brand."</p>
+          <div class="scard-note">This gives us <strong>Steps P, E, and X</strong> — the four-level journey from awareness to loyalty. It also explains why our influencer strategy must create emotional connection, not just visibility.</div>
+          <div class="chip-row">
+            <span class="chip chip-p">Awareness → Loyalty</span>
+            <span class="chip chip-p">Customer Journey</span>
+            <span class="chip chip-p">Brand Resonance</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scard">
+        <div class="scard-head">
+          <div class="scard-icon si-g">⚖️</div>
+          <div>
+            <h4>PESO Model®</h4>
+            <div class="author">Gini Dietrich · "Spin Sucks" (2014)<br>Certified at Syracuse University<br>Used by Fortune 500 companies worldwide</div>
+          </div>
+        </div>
+        <div class="scard-body">
+          <p>"Paid, Earned, Shared, and Owned media are not separate strategies. They are one connected system — and brands that use all four together build far more trust than those who only run ads."</p>
+          <div class="scard-note">This gives us our <strong>channel structure</strong> — the reason we use our own website, media coverage, paid ads, AND influencers together. Each one does something the others cannot.</div>
+          <div class="chip-row">
+            <span class="chip chip-g">Paid Ads</span>
+            <span class="chip chip-g">Media Coverage</span>
+            <span class="chip chip-g">Influencers</span>
+            <span class="chip chip-g">Own Content</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scard">
+        <div class="scard-head">
+          <div class="scard-icon si-gr">🤖</div>
+          <div>
+            <h4>GEO — Generative Engine Optimization</h4>
+            <div class="author">Princeton University · Published at ACM KDD 2024<br>The world's first peer-reviewed study on AI search visibility<br>Aggarwal, Murahari, Rajpurohit et al.</div>
+          </div>
+        </div>
+        <div class="scard-body">
+          <p>"Content that includes real data, clear structure, and reliable sources is 40% more likely to be cited by AI tools than content that does not — regardless of which company wrote it."</p>
+          <div class="scard-note">This is <strong>the newest and most important piece</strong> — it explains exactly why we write content a certain way, why we need original data, and why media coverage matters so much for AI visibility.</div>
+          <div class="chip-row">
+            <span class="chip chip-gr">AI Search Visibility</span>
+            <span class="chip chip-gr">Content Structure</span>
+            <span class="chip chip-gr">Data-First Writing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <div class="h2" style="margin-bottom:14px;">How to Explain This to Anyone</div>
+
+    <div class="callout dark">
+      <p>If someone asks why we are doing all of this, here is the simple answer:<br><br>
+      <strong>"People used to Google things. Now they ask AI tools for answers. If WSE isn't in those AI answers, we lose potential students before they even visit our website. This strategy makes WSE the brand that AI tools always recommend when someone asks about English learning in Indonesia — the same way it used to be about being on the first page of Google."</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ── CHECKLIST ── -->
+<div class="page" id="page-checklist">
+  <div class="topbar">
+    <div class="topbar-path">Playbook <strong>/ Campaign Checklist</strong></div>
+    <div class="topbar-tag">Tick each box as you complete it</div>
+  </div>
+  <div class="pw">
+    <span class="eyebrow">Campaign Planning Tool</span>
+    <h1 class="page-h1">Before You Launch<br><em>Any Campaign</em></h1>
+    <p class="page-lead">Go through this list for every campaign — big or small. If any section is incomplete, the campaign is not ready to launch. Tick each box as your team completes it.</p>
+
+    <div class="progress-box">
+      <div class="prog-top">
+        <span>How complete is your campaign?</span>
+        <span id="prog-text">0 of 32 steps done</span>
+      </div>
+      <div class="prog-track">
+        <div class="prog-fill" id="prog-fill"></div>
+      </div>
+    </div>
+
+    <div class="cl-group">
+      <div class="cl-group-head">
+        <div class="cl-dot cd1">A</div>
+        <div>
+          <div class="cl-group-label">Step A — Define the Campaign Foundation</div>
+          <div class="cl-group-sub">Do this before writing any content</div>
+        </div>
+      </div>
+      <div class="cl-items">
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>We know exactly who this campaign is for (executives / professionals / students / companies)</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>We have agreed on the one main message of this campaign</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>The communication angle matches the audience (leadership / career / opportunity / team ROI)</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>All content will sound like WSE: expert but friendly, global but Indonesian</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>The value we are offering is clear: What skill? What benefit? What transformation?</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Brand manager, content team, and sales team are all aligned before we start</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>No content contradicts WSE's global brand look and guidelines</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>This segment's angle has been approved by the brand manager</div>
+      </div>
+    </div>
+
+    <div class="cl-group">
+      <div class="cl-group-head">
+        <div class="cl-dot cd2">P</div>
+        <div>
+          <div class="cl-group-label">Step P — Plan the Content and Where It Goes</div>
+          <div class="cl-group-sub">Complete before the campaign launches</div>
+        </div>
+      </div>
+      <div class="cl-items">
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>At least 1 in-depth article planned or already live on our website</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>At least 1 feature planned in an external media (Kompas, Glints, etc.)</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Press release written and scheduled for distribution</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Every article answers a real question someone would type into Google or ask an AI tool</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Every article includes real numbers or data — not just general statements</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>YouTube video planned, with a written version to be published alongside it</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Google Business Profile posts scheduled for all WSE branch locations</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>We know which 3–5 questions we want WSE to appear for in AI search</div>
+      </div>
+    </div>
+
+    <div class="cl-group">
+      <div class="cl-group-head">
+        <div class="cl-dot cd3">E</div>
+        <div>
+          <div class="cl-group-label">Step E — Create Connection and Drive Action</div>
+          <div class="cl-group-sub">Ready for campaign launch day</div>
+        </div>
+      </div>
+      <div class="cl-items">
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>At least 2 influencers briefed — both required to publish written content online</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Influencer brief includes requirement for a YouTube video or blog article (not just Stories)</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Facebook and Instagram ads set up and live</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Google Search ads active for both WSE brand and general English course searches</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Best-performing influencer post identified for paid promotion / boosting</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Email follow-up sequence written (minimum 3 emails, helpful content not just sales)</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>An event or live experience is planned (if this is a quarterly campaign)</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Free English Assessment is available and being promoted as the first step</div>
+      </div>
+    </div>
+
+    <div class="cl-group">
+      <div class="cl-group-head">
+        <div class="cl-dot cd4">X</div>
+        <div>
+          <div class="cl-group-label">Step X — Make the Results Last and Grow</div>
+          <div class="cl-group-sub">After the campaign ends, and ongoing</div>
+        </div>
+      </div>
+      <div class="cl-items">
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>New articles link back to existing articles on our website (building a connected library)</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Checking weekly: does WSE appear in AI search results for our target questions?</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Influencer and media links back to our website have been confirmed and logged</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Campaign results written up as an internal case study for the team to learn from</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>A follow-up is planned for attendees or leads from this campaign (event invite, email, etc.)</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>All new content added to WSE's master content library for future repurposing</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Monthly report prepared: AI visibility, website traffic, leads, and enrolments</div>
+        <div class="cl-item"><div class="cl-box" onclick="tick(this)"></div>Key learning from this campaign noted and applied to the next one</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── KPIs ── -->
+<div class="page" id="page-kpis">
+  <div class="topbar">
+    <div class="topbar-path">Playbook <strong>/ Goals & Timeline</strong></div>
+    <div class="topbar-tag">What We Track & When</div>
+  </div>
+  <div class="pw wide">
+    <span class="eyebrow">Goals & Timeline</span>
+    <h1 class="page-h1">How We Know<br><em>It's Working</em></h1>
+    <p class="page-lead">We measure results in four groups — one for each APEX step. Management reviews the Step X results. The marketing team owns Steps P and E. Sales tracks how leads come in and convert.</p>
+
+    <div class="h3" style="margin-bottom:12px;">What We Measure and Why</div>
+
+    <table class="tbl">
+      <thead>
+        <tr><th>What We're Measuring</th><th>Step</th><th>How We Check It</th><th>Year 1 Goal</th><th>Who Owns It</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Team alignment on WSE brand message</td><td><span class="tpill a">A</span></td><td>Quick internal survey — does everyone say the same thing about WSE?</td><td>90% of team aligned</td><td>Brand Manager</td></tr>
+        <tr><td>Articles published on our website</td><td><span class="tpill p">P</span></td><td>Google Search Console — how many pages Google has indexed</td><td>100+ articles</td><td>Content Team</td></tr>
+        <tr><td>Features in major media</td><td><span class="tpill p">P</span></td><td>Manual tracking — Kompas, Detik, Glints, SWA</td><td>15+ per year</td><td>PR Team</td></tr>
+        <tr><td>AI searches where WSE appears</td><td><span class="tpill p">P</span></td><td>Test 20+ questions manually in Google AI, ChatGPT, and Perplexity each month</td><td>Appear in 20+ searches</td><td>Brand Manager</td></tr>
+        <tr><td>People finding WSE through search</td><td><span class="tpill p">P</span></td><td>Google Analytics — how many people come from search engines</td><td>3× more than today</td><td>Digital Team</td></tr>
+        <tr><td>Influencer articles and videos published</td><td><span class="tpill e">E</span></td><td>Count influencer deliverables that include written published content</td><td>24+ pieces per year</td><td>Partnerships</td></tr>
+        <tr><td>Leads from events</td><td><span class="tpill e">E</span></td><td>CRM system — how many leads came from each event</td><td>500+ per event</td><td>Sales / Events</td></tr>
+        <tr><td>Ad conversion rate</td><td><span class="tpill e">E</span></td><td>Meta Ads and Google Ads — % of ad viewers who fill in a form</td><td>3–5% conversion</td><td>Performance Team</td></tr>
+        <tr><td>Students who refer friends</td><td><span class="tpill x">X</span></td><td>CRM — how many new leads came from existing student referrals</td><td>15%+ of all new leads</td><td>Sales / CRM</td></tr>
+        <tr><td>Website authority score</td><td><span class="tpill x">X</span></td><td>Ahrefs or Semrush — how trusted our website is compared to competitors</td><td>Improve by 10 points</td><td>Digital Team</td></tr>
+        <tr><td>People searching for "WSE" by name</td><td><span class="tpill x">X</span></td><td>Google Search Console — branded search queries</td><td>2× more than today</td><td>Brand Manager</td></tr>
+        <tr><td>Old content still bringing visitors</td><td><span class="tpill x">X</span></td><td>Google Analytics — % of traffic coming from articles older than 6 months</td><td>40%+ of traffic</td><td>Content Team</td></tr>
+      </tbody>
+    </table>
+
+    <hr class="sep">
+
+    <div class="h2" style="margin-bottom:16px;">12-Month Plan</div>
+    <p class="body-text" style="margin-bottom:24px;">We build this in four phases. Each phase builds on the one before it. By Month 12, the system is running on its own momentum.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot d1"></div>
+        <div class="tl-content">
+          <div class="tl-phase">Apr–May 2026 · Phase 1</div>
+          <h4>Q2 2026 — Build the Foundation</h4>
+          <ul class="tl-list">
+            <li>Review and fix our existing website content and SEO setup</li>
+            <li>Publish 10 foundational articles covering our 6 key topics</li>
+            <li>Plan our full editorial calendar for the next 12 months</li>
+            <li>Set up and optimise all Google Business Profile pages per branch</li>
+            <li>Identify and brief our first group of 5–8 influencers</li>
+            <li>Set up YouTube channel with consistent structure and branding</li>
+            <li>Launch baseline Google and Meta ad campaigns</li>
+            <li>Train the full team on the APEX framework</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot d2"></div>
+        <div class="tl-content">
+          <div class="tl-phase">Jun–Aug 2026 · Phase 2</div>
+          <h4>Q2–Q3 2026 — Build Speed and Reach</h4>
+          <ul class="tl-list">
+            <li>Scale to 10–12 articles per month consistently</li>
+            <li>Land first media features on Kompas and Detik</li>
+            <li>Start uploading 4 YouTube videos per month with transcripts</li>
+            <li>First wave of influencer content published</li>
+            <li>Launch TikTok content and promote best posts as paid ads</li>
+            <li>Send first monthly press release through wire services</li>
+            <li>Start weekly AI search visibility check</li>
+            <li>Launch LinkedIn thought leadership content</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot d3"></div>
+        <div class="tl-content">
+          <div class="tl-phase">Sep–Oct 2026 · Phase 3</div>
+          <h4>Q3 2026 — Build Authority</h4>
+          <ul class="tl-list">
+            <li>Publish "WSE Indonesia English Survey 2026" — our original research</li>
+            <li>Expand media coverage to Glints, SWA, and Bisnis.com</li>
+            <li>Grow to 15+ active influencer partnerships</li>
+            <li>Launch podcast guest appearance strategy</li>
+            <li>Build a library of 20+ comparison articles</li>
+            <li>Activate corporate B2B content stream for HR decision-makers</li>
+            <li>Start monthly AI citation report for management</li>
+            <li>Launch Glints × WSE "Speak to Lead" quarterly event series</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot d4"></div>
+        <div class="tl-content">
+          <div class="tl-phase">Nov–Dec 2026 · Phase 4</div>
+          <h4>Q4 2026 — The System Runs Itself</h4>
+          <ul class="tl-list">
+            <li>100+ articles indexed — content is now generating leads on its own</li>
+            <li>WSE appears in AI search for 20+ target questions</li>
+            <li>Publish "WSE Annual English Impact Report Indonesia 2026"</li>
+            <li>Scale the best-performing influencer partnerships into ongoing contracts</li>
+            <li>Alumni referral network formally launched with perks and community</li>
+            <li>Retargeting audiences fully built across all platforms</li>
+            <li>Cross-media editorial partnerships generating content automatically</li>
+            <li>Plan and present 2027 APEX strategy to management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .main -->
+
+<script>
+// ─── Navigation ───
+function go(pageId, navEl) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const pg = document.getElementById('page-' + pageId);
+  if (pg) {
+    pg.classList.add('active');
+    pg.scrollTop = 0;
+  }
+  document.querySelectorAll('.s-item').forEach(n => n.classList.remove('active'));
+  if (navEl) navEl.classList.add('active');
+}
+
+function getNav(pageId) {
+  return document.querySelector(`.s-item[onclick*="${pageId}"]`);
+}
+
+// ─── Tab switching ───
+function showTab(id, el) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  const panel = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('active');
+  if (el) el.classList.add('active');
+}
+
+// ─── Checklist ───
+const TOTAL = 32;
+
+function tick(box) {
+  box.classList.toggle('done');
+  const done = document.querySelectorAll('.cl-box.done').length;
+  const pct = Math.round((done / TOTAL) * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-text').textContent = done + ' of ' + TOTAL + ' steps done';
+}
+
+// Overview card navigation
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.qcard');
+  const pages = ['strategy', 'distribution', 'campaign', 'apex'];
+  cards.forEach((card, i) => {
+    card.addEventListener('click', function() {
+      const navEl = getNav(pages[i]);
+      go(pages[i], navEl);
+    });
+  });
+});
+</script>
+</body>
+</html>
